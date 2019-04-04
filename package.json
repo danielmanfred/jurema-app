@@ -4,6 +4,8 @@
   "description": "API de consulta ao IBGE",
   "main": "index.js",
   "scripts": {
+    "start": "babel-node src/index.js",
+    "local": "nodemon --exec babel-node src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,6 +25,7 @@
   },
   "homepage": "https://github.com/danielmanfred/jurema-exam#readme",
   "dependencies": {
+    "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "express": "^4.16.4"
   },
