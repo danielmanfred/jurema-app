@@ -1,13 +1,20 @@
 import service from './../services/states'
-import { getPopulationByLocality } from './../services/population'
+import populationService from './../services/population'
 
+/**
+ * Recupera a lista de estados direto do banco de IBGE
+ * 
+ * @param {*} req Requisição HTTP 
+ * @param {*} res Resposta HTTP
+ * @returns {json}
+ */
 const getStates = async (req, res) => {
   try {
     const states = []
     const response = await service.getAllStates()
-    console.log('getting here', response)
+    
     for (let state of response.data) {
-      const population = await getPopulationByLocality(state.id)
+      const population = await populationService.getPopulationByLocality(state.id)
       states.push({
         nome: state.nome,
         uf: state.sigla,

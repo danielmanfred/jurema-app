@@ -1,8 +1,17 @@
 import service from './../services/population'
 
+/**
+ * Recupera a população do estado direto do IBGE
+ * 
+ * @param {*} req Requisição HTTP
+ * @param {*} res Resposta HTTP
+ * @returns {json}
+ */
 const getStatePopulation = async (req, res) => {
   try {
-    let uf = (req.params.uf).toUpperCase()
+    let uf = req.params.uf 
+    uf = uf ? uf.toUpperCase() : 'BR'
+    
     const response = await service.getStatePopulation(uf)
     
     res.json(response)

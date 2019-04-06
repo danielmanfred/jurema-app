@@ -3,6 +3,11 @@ import { getIdByInitials } from './states'
 
 const populationURL = 'https://servicodados.ibge.gov.br/api/v1/projecoes/populacao/'
 
+/**
+ * Constroi a resposta para a solicitação da população de uma estado por meio de sua sigla
+ * 
+ * @param {string} uf 
+ */
 const getStatePopulation = async uf => {  
   const locality = await getIdByInitials(uf)
   const result = await axios.get(`${populationURL}${locality}`)
@@ -13,6 +18,11 @@ const getStatePopulation = async uf => {
   }
 }
 
+/**
+ * Retorna a população por meio da localidade
+ * 
+ * @param {number} locality Número de localização do estado
+ */
 const getPopulationByLocality = async locality => {
   const result = await axios.get(`${populationURL}${locality}`)
   return result.data.projecao.populacao

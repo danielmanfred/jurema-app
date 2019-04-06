@@ -15,4 +15,4 @@ require('./routes/population')(app)
 app.get('/', (req, res) => res.json({ message: 'Welcome to the Jurema Exam' }))
 
 // Running app
-app.listen(key.server.port, () => console.log('Server running at port 4000'))
+app.listen(key.server.port, () => console.log('Server running at port 3000'))
