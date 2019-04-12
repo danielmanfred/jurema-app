@@ -1,4 +1,4 @@
-# Jurema Exam
+# Jurema App
 
 ## How to run this API
 
